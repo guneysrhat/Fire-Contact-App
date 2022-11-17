@@ -46,7 +46,7 @@ const FormComponent = ({ info, setInfo, handleSumbit }) => {
       <h2 className="contact-header">Add Contact</h2>
 
       <Box style={{ backgroundColor: "white", padding: "20px" }}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSumbit}>
           <Stack spacing={3} direction="column">
             <TextField
               variant="outlined"
