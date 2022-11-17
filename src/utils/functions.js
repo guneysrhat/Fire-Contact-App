@@ -1,7 +1,7 @@
 //! ADD USER
 
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import firebase from "./firebase";
 
 export const AddUser = (info) => {
@@ -19,7 +19,7 @@ export const AddUser = (info) => {
 
 //! READ INFO
 
-export default useFetch = () => {
+export const useFetch = () => {
   const [isLoading, setIsLoading] = useState();
   const [contactList, setContactList] = useState();
 
