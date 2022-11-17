@@ -35,6 +35,10 @@ export const useFetch = () => {
       setContactList(userArray);
       setIsLoading(false);
     });
-    return { isLoading, contactList };
   }, []);
+  return { isLoading, contactList };
 };
+
+
+//! DELETE INFO
+

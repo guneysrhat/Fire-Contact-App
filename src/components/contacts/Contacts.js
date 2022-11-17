@@ -8,9 +8,10 @@ import {
   TableBody,
   Paper,
 } from "@mui/material";
-import { useFetch } from "../../utils/functions";
-
-const Contacts = () => {
+import { useFetch, DeleteUser } from "../../utils/functions";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+const Contacts = ({ editUser }) => {
   const { isLoading, contactList } = useFetch();
   return (
     <div>
@@ -29,7 +30,7 @@ const Contacts = () => {
 
           <TableBody>
             {
-              // Bilgiler gelmediği durumda Loading yazısı görünsün
+              //? Bilgiler gelmediği durumda Loading yazısı görünsün
               isLoading ? (
                 <TableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -39,7 +40,7 @@ const Contacts = () => {
                   </TableCell>
                 </TableRow>
               ) : contactList?.lenght === 0 ? (
-                // Bilgiler olmadığı,boş olduğu  durumda veri bulunamadı mesajı
+                //? Bilgiler olmadığı,boş olduğu  durumda veri bulunamadı mesajı
                 <TableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
@@ -48,7 +49,7 @@ const Contacts = () => {
                   </TableCell>
                 </TableRow>
               ) : (
-                // Bilgiler geldiği zaman aşağıya yazılacak kodlar çalışsın
+                //? Bilgiler geldiği zaman aşağıya yazılacak kodlar çalışsın
                 contactList?.map((item, index) => (
                   <TableRow>
                     <TableCell align="center">{item.username} </TableCell>
