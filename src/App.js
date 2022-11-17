@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Contacts from "./components/contacts/Contacts";
 import FormComponent from "./components/form/FormComponent";
-import { AddUser } from "./utils/functions";
+import { AddUser, UpdateUser } from "./utils/functions";
 
 const initialValues = {
   username: "",
@@ -14,7 +14,16 @@ function App() {
 
   const handleSumbit = (e) => {
     e.preventDefault();
-    AddUser(info);
+
+    if (info.id) {
+      UpdateUser(info);
+    } else {
+      AddUser(info);
+    }
+  };
+
+  const editUser = (id, username, phoneNumber, gender) => {
+    setInfo({ id, username, phoneNumber, gender });
   };
 
   return (
@@ -24,7 +33,7 @@ function App() {
         setInfo={setInfo}
         handleSumbit={handleSumbit}
       />
-      <Contacts />
+      <Contacts editUser={editUser} />
     </div>
   );
 }
