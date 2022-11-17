@@ -18,6 +18,7 @@ const FormComponent = ({ info, setInfo, handleSumbit }) => {
   const handleChange = (e) => {
     // const name = e.target.name;
     // const value = e.target.value;
+    e.preventDefault();
     const { name, value } = e.target;
 
     setInfo({ ...info, [name]: value });

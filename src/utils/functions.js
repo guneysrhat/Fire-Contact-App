@@ -9,8 +9,9 @@ import {
   remove,
   update,
 } from "firebase/database";
-import { useEffect, useState } from "react";
 import firebase from "./firebase";
+import { useState, useEffect } from "react";
+import Toastify from "./toastify";
 
 export const AddUser = (info) => {
   const db = getDatabase(firebase);
@@ -23,6 +24,7 @@ export const AddUser = (info) => {
     gender: info.gender,
   });
   console.log("Add userda bilgiler kaydedildi");
+  Toastify("Contact Successfully Added ");
 };
 
 //! READ INFO
@@ -51,18 +53,19 @@ export const useFetch = () => {
 
 export const DeleteUser = (id) => {
   const db = getDatabase(firebase);
-  const userRef = ref(db, "user/");
+  //   const userRef = ref(db, "user/");
   remove(ref(db, "user/" + id));
+  Toastify("Contact Successfully Deleted ");
 };
 
 //! EDIT INFO
 
 export const UpdateUser = (info) => {
   const db = getDatabase(firebase);
-  const userRef = ref(db, "user/");
+  //   const userRef = ref(db, "user/");
 
   const updates = {};
   updates["user/" + info.id] = info;
-
+  Toastify("Contact Successfully Edited ");
   return update(ref(db), updates);
 };

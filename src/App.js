@@ -3,6 +3,7 @@ import "./App.css";
 import Contacts from "./components/contacts/Contacts";
 import FormComponent from "./components/form/FormComponent";
 import { AddUser, UpdateUser } from "./utils/functions";
+import { ToastContainer } from "react-toastify";
 
 const initialValues = {
   username: "",
@@ -17,8 +18,10 @@ function App() {
 
     if (info.id) {
       UpdateUser(info);
+      setInfo(initialValues);
     } else {
       AddUser(info);
+      setInfo(initialValues);
     }
   };
 
@@ -34,6 +37,7 @@ function App() {
         handleSumbit={handleSumbit}
       />
       <Contacts editUser={editUser} />
+      <ToastContainer />
     </div>
   );
 }
